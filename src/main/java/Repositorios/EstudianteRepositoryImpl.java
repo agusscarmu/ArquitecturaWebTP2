@@ -5,6 +5,7 @@ import Entidades.Estudiante;
 import Fabrica.MyEntityManagerFactory;
 import Interfaces.EstudianteRepository;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
@@ -23,34 +24,51 @@ public class EstudianteRepositoryImpl implements EstudianteRepository {
             em.persist(estudiante);
             em.getTransaction().commit();
         } catch (Exception e) {
-            if (em.getTransaction() != null && em.getTransaction().isActive()) {
-                em.getTransaction().rollback();
-            }
-            throw e; // Maneja la excepción o relánzala según tus necesidades
-        } finally {
             em.close();
         }
     }
 
     @Override
     public void agregarEstudiante(String csv) throws IOException {
-        String csvFilePath = System.getProperty("user.dir") + "/"+csv;
-        CSVParser parser = CSVFormat.DEFAULT.withHeader().parse(new FileReader(csvFilePath));
 
-        for(CSVRecord row: parser) {
-            Estudiante estudiante = new Estudiante(Integer.parseInt(row.get("dni")),Integer.parseInt(row.get("libreta")),row.get("nombre"),row.get("apellido"),Integer.parseInt(row.get("edad")),row.get("genero"),row.get("ciudad"));
-            agregarEstudiante(estudiante);
+    }
+
+    @Override
+    public Estudiante obtenerEstudiantePorLibreta(int libreta) {
+        try (EntityManager em = MyEntityManagerFactory.getInstance().createEntityManager()) {
+            TypedQuery<Estudiante> query = em.createQuery(
+                    "SELECT e FROM Estudiante e WHERE e.libretaUniversitaria = :libreta", Estudiante.class);
+            query.setParameter("libreta", libreta);
+
+            // Realiza la consulta y obtén el resultado
+            Estudiante estudiante = query.getSingleResult();
+
+            return estudiante;
+        } catch (Exception e) {
+            // Manejar el caso en el que no se encuentra ningún estudiante con ese número de libreta
+            return null;
         }
     }
 
     @Override
-    public Estudiante obtenerEstudiantePorDNI(int dni) {
-        return null;
-    }
+    public List<Estudiante> obtenerTodosLosEstudiantes(String criterioOrdenamiento) {
+        EntityManager em = MyEntityManagerFactory.getInstance().createEntityManager();
+        String jpql = "SELECT e FROM Estudiante e ORDER BY ";
 
-    @Override
-    public List<Estudiante> obtenerTodosLosEstudiantes() {
-        return null;
+
+        if ("nombre".equals(criterioOrdenamiento)) {
+            jpql += "e.nombre";
+        } else if ("apellido".equals(criterioOrdenamiento)) {
+            jpql += "e.apellido";
+        } else if ("dni".equals(criterioOrdenamiento)) {
+            jpql += "e.dni";
+        } else {
+            jpql = "SELECT e FROM Estudiante e";
+        }
+
+        TypedQuery<Estudiante> query = em.createQuery(jpql, Estudiante.class);
+
+        return query.getResultList();
     }
 
     @Override

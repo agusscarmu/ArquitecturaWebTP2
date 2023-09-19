@@ -22,11 +22,6 @@ public class CarreraRespositoryImpl implements CarreraRepository {
             em.persist(carrera);
             em.getTransaction().commit();
         } catch (Exception e) {
-            if (em.getTransaction() != null && em.getTransaction().isActive()) {
-                em.getTransaction().rollback();
-            }
-            throw e; // Maneja la excepción o relánzala según tus necesidades
-        } finally {
             em.close();
         }
     }
@@ -34,13 +29,7 @@ public class CarreraRespositoryImpl implements CarreraRepository {
 
     @Override
     public void agregarCarrera(String csv) throws IOException {
-        String csvFilePath = System.getProperty("user.dir") + "/"+csv;
-        CSVParser parser = CSVFormat.DEFAULT.withHeader().parse(new FileReader(csvFilePath));
 
-        for(CSVRecord row: parser) {
-            Carrera carrera = new Carrera(row.get("nombre"),Integer.parseInt(row.get("duracion")));
-            agregarCarrera(carrera);
-        }
     }
 
 

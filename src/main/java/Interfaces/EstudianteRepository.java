@@ -14,10 +14,10 @@ public interface EstudianteRepository{
     void agregarEstudiante(String csv) throws IOException;
 
     // Método para obtener un estudiante por su número de DNI
-    Estudiante obtenerEstudiantePorDNI(int dni);
+    Estudiante obtenerEstudiantePorLibreta(int libreta);
 
     // Método para obtener todos los estudiantes
-    List<Estudiante> obtenerTodosLosEstudiantes();
+    List<Estudiante> obtenerTodosLosEstudiantes(String criterioOrdenamiento);
 
     // Método para actualizar la información de un estudiante
     void actualizarEstudiante(Estudiante estudiante);

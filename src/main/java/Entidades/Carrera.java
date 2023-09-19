@@ -1,6 +1,8 @@
 package Entidades;
 
 import jakarta.persistence.*;
+
+import java.util.LinkedList;
 import java.util.List;
 
 @Entity
@@ -17,10 +19,17 @@ public class Carrera {
     public Carrera(String nombre, int duracion){
         this.nombre=nombre;
         this.duracion=duracion;
+        this.inscripciones = new LinkedList<>();
     }
 
     public Carrera() {
+        this.inscripciones = new LinkedList<>();
+    }
 
+    public void agregarInscripcion(InscripcionCarrera i){
+        if(!inscripciones.contains(i)){
+            inscripciones.add(i);
+        }
     }
 
     public int getId() {
