@@ -38,7 +38,7 @@ public class HelperCSV {
         this.icr = new InscripcionCarreraRepositoryImpl();
     }
 
-    public void InsertarCSV(String csvEstudiante, String csvCarrera) throws IOException {
+    public void InsertarCSV(String csvEstudiante, String csvCarrera, String csvInscripcionCarrera) throws IOException {
         String csvFilePath = System.getProperty("user.dir") + "/" + csvEstudiante;
         CSVParser parser = CSVFormat.DEFAULT.withHeader().parse(new FileReader(csvFilePath));
 
@@ -55,53 +55,79 @@ public class HelperCSV {
             carreras.add(carrera);
         }
 
-        assign();
-    }
+        csvFilePath = System.getProperty("user.dir") + "/" + csvInscripcionCarrera;
+        parser = CSVFormat.DEFAULT.withHeader().parse(new FileReader(csvFilePath));
 
-    private void assign(){
-        Random r = new Random();
-        for(Estudiante estudiante:estudiantes){
-            int cantCarreras = r.nextInt(3);
-            for(int i=0;i<cantCarreras;i++){
-                int index = r.nextInt(carreras.size());
-                Carrera carrera = carreras.get(index);
-
-                int incripcionesEstudiante = estudiante.getInscripciones().size();
-                int a=0;
-                while (a<incripcionesEstudiante){
-                    for(InscripcionCarrera inscr: estudiante.getInscripciones()){
-                        if(inscr.getCarrera().equals(carrera)){
-                            carrera = carreras.get(r.nextInt(carreras.size()));
-                            a=0;
-                        }
-                    }
-                    a++;
+        for (CSVRecord row : parser) {
+            boolean g;
+            g= row.get("graduado").equals("true");
+            Carrera c = new Carrera();
+            Estudiante e = new Estudiante();
+            for(Estudiante estudiante:estudiantes){
+                if(estudiante.getEstudianteId().getDni() == Integer.parseInt(row.get("dni"))
+                && estudiante.getEstudianteId().getLibretaUniversitaria() == Integer.parseInt(row.get("libretaUniversitaria"))){
+                    e=estudiante;
+                    break;
                 }
-
-                InscripcionCarrera ic = new InscripcionCarrera();
-//
-//                InscripcionId iId = new InscripcionId();
-//                iId.setId(carrera.getId());
-//                iId.setDni(estudiante.getEstudianteId().getDni());
-//                iId.setLibretaUniversitaria(estudiante.getEstudianteId().getLibretaUniversitaria());
-//                ic.setId(iId);
-
-                ic.setEstudiante(estudiante);
-                ic.setCarrera(carrera);
-                ic.setAntiguedad(r.nextInt(10));
-                ic.setGraduado(ic.getAntiguedad() > carrera.getDuracion());
-
-                inscripciones.add(ic);
             }
+            for(Carrera carrera:carreras){
+                if(carrera.getId() == Integer.parseInt(row.get("carrera"))){
+                    c=carrera;
+                    break;
+                }
+            }
+            InscripcionCarrera ic = new InscripcionCarrera(e,c, Integer.parseInt(row.get("antiguedad")),g);
+            inscripciones.add(ic);
         }
+//        assign();
         insert();
     }
+//
+//    private void assign(){
+//        Random r = new Random();
+//        for(Estudiante estudiante:estudiantes){
+//            int cantCarreras = r.nextInt(3);
+//            for(int i=0;i<cantCarreras;i++){
+//                int index = r.nextInt(carreras.size());
+//                Carrera carrera = carreras.get(index);
+//
+//                int incripcionesEstudiante = estudiante.getInscripciones().size();
+//                int a=0;
+//                while (a<incripcionesEstudiante){
+//                    for(InscripcionCarrera inscr: estudiante.getInscripciones()){
+//                        if(inscr.getCarrera().equals(carrera)){
+//                            carrera = carreras.get(r.nextInt(carreras.size()));
+//                            a=0;
+//                        }
+//                    }
+//                    a++;
+//                }
+//
+//                InscripcionCarrera ic = new InscripcionCarrera();
+////
+////                InscripcionId iId = new InscripcionId();
+////                iId.setId(carrera.getId());
+////                iId.setDni(estudiante.getEstudianteId().getDni());
+////                iId.setLibretaUniversitaria(estudiante.getEstudianteId().getLibretaUniversitaria());
+////                ic.setId(iId);
+//
+//                ic.setEstudiante(estudiante);
+//                ic.setCarrera(carrera);
+//                ic.setAntiguedad(r.nextInt(10));
+//                ic.setGraduado(ic.getAntiguedad() > carrera.getDuracion());
+//
+//                inscripciones.add(ic);
+//            }
+//        }
+//        insert();
+//    }
 
     private void insert(){
         for(Estudiante estudiante: estudiantes){
             er.agregarEstudiante(estudiante);
         }
 
+        System.out.println(carreras.size());
         for(Carrera carrera: carreras){
             cr.agregarCarrera(carrera);
         }

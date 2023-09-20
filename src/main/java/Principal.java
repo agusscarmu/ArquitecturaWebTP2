@@ -21,7 +21,7 @@ public class Principal {
     public static void main(String[] args) throws IOException {
 //
         HelperCSV helper = new HelperCSV();
-        helper.InsertarCSV("estudiante.csv", "carrera.csv");
+        helper.InsertarCSV("estudiante.csv", "carrera.csv", "inscripcionCarrera.csv");
 //
 //        Estudiante estudiante = new Estudiante(41724302, 200, "Agustin", "Carmu", 24, "Masculino", "Olavarria");
 //        Carrera carrera = new Carrera();

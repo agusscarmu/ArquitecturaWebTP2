@@ -19,6 +19,13 @@ public class InscripcionCarrera {
     private int antiguedad;
     private boolean graduado;
 
+    public InscripcionCarrera(Estudiante estudiante, Carrera carrera, int antiguedad, boolean graduado) {
+        this.estudiante = estudiante;
+        this.carrera = carrera;
+        this.antiguedad = antiguedad;
+        this.graduado = graduado;
+    }
+
 
     public int getAntiguedad() {
         return antiguedad;
