@@ -51,7 +51,7 @@ public class HelperCSV {
         parser = CSVFormat.DEFAULT.withHeader().parse(new FileReader(csvFilePath));
 
         for (CSVRecord row : parser) {
-            Carrera carrera = new Carrera(row.get("nombre"), Integer.parseInt(row.get("duracion")));
+            Carrera carrera = new Carrera(Integer.parseInt(row.get("id")),row.get("nombre"), Integer.parseInt(row.get("duracion")));
             carreras.add(carrera);
         }
 
@@ -59,29 +59,36 @@ public class HelperCSV {
         parser = CSVFormat.DEFAULT.withHeader().parse(new FileReader(csvFilePath));
 
         for (CSVRecord row : parser) {
-            boolean g;
-            g= row.get("graduado").equals("true");
-            Carrera c = new Carrera();
-            Estudiante e = new Estudiante();
-            for(Estudiante estudiante:estudiantes){
-                if(estudiante.getEstudianteId().getDni() == Integer.parseInt(row.get("dni"))
-                && estudiante.getEstudianteId().getLibretaUniversitaria() == Integer.parseInt(row.get("libretaUniversitaria"))){
-                    e=estudiante;
-                    break;
-                }
-            }
-            for(Carrera carrera:carreras){
-                if(carrera.getId() == Integer.parseInt(row.get("carrera"))){
-                    c=carrera;
-                    break;
-                }
-            }
-            InscripcionCarrera ic = new InscripcionCarrera(e,c, Integer.parseInt(row.get("antiguedad")),g);
+            Carrera c = getCarrera(Integer.parseInt(row.get("carrera")));
+            Estudiante e = getEstudiante(Integer.parseInt(row.get("dni")), Integer.parseInt(row.get("libretaUniversitaria")));
+            InscripcionCarrera ic = new InscripcionCarrera(Integer.parseInt(row.get("antiguedad")),row.get("graduado").equals("true"));
+            ic.setCarrera(c);
+            ic.setEstudiante(e);
             inscripciones.add(ic);
         }
 //        assign();
         insert();
     }
+
+    public Carrera getCarrera(Integer id){
+        for(Carrera carrera:carreras){
+            if(carrera.getId() == id){
+                return carrera;
+            }
+        }
+        return null;
+    }
+
+    public Estudiante getEstudiante(Integer dni, Integer libreta){
+        for(Estudiante estudiante:estudiantes){
+            if(estudiante.getEstudianteId().getDni() == dni
+                && estudiante.getEstudianteId().getLibretaUniversitaria() == libreta){
+                return estudiante;
+            }
+        }
+        return null;
+    }
+
 //
 //    private void assign(){
 //        Random r = new Random();

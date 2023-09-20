@@ -35,6 +35,12 @@ public class Estudiante {
     }
 
 
+    public void addInscripcion(InscripcionCarrera inscripcion){
+        if(!inscripciones.contains(inscripcion)){
+            inscripciones.add(inscripcion);
+        }
+    }
+
     public String getNombre() {
         return nombre;
     }

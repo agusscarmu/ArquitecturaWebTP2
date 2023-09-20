@@ -19,11 +19,13 @@ public class InscripcionCarrera {
     private int antiguedad;
     private boolean graduado;
 
-    public InscripcionCarrera(Estudiante estudiante, Carrera carrera, int antiguedad, boolean graduado) {
-        this.estudiante = estudiante;
-        this.carrera = carrera;
+    public InscripcionCarrera(int antiguedad, boolean graduado) {
         this.antiguedad = antiguedad;
         this.graduado = graduado;
+    }
+
+    public InscripcionCarrera() {
+
     }
 
 
@@ -48,6 +50,7 @@ public class InscripcionCarrera {
     }
 
     public void setEstudiante(Estudiante estudiante) {
+        estudiante.addInscripcion(this);
         this.estudiante = estudiante;
     }
 
@@ -56,6 +59,7 @@ public class InscripcionCarrera {
     }
 
     public void setCarrera(Carrera carrera) {
+        carrera.addInscripcion(this);
         this.carrera = carrera;
     }
 }

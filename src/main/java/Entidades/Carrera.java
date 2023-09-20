@@ -8,7 +8,6 @@ import java.util.List;
 @Entity
 public class Carrera {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String nombre;
 
@@ -16,7 +15,8 @@ public class Carrera {
     @OneToMany(mappedBy = "carrera")
     private List<InscripcionCarrera> inscripciones;
 
-    public Carrera(String nombre, int duracion){
+    public Carrera(int id, String nombre, int duracion){
+        this.id=id;
         this.nombre=nombre;
         this.duracion=duracion;
         this.inscripciones = new LinkedList<>();
