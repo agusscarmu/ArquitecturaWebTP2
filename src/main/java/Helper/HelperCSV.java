@@ -1,6 +1,7 @@
 package Helper;
 
 import Entidades.Carrera;
+import Entidades.ClavesCompuestas.InscripcionId;
 import Entidades.Estudiante;
 import Entidades.InscripcionCarrera;
 import Interfaces.CarreraRepository;
@@ -78,12 +79,18 @@ public class HelperCSV {
                 }
 
                 InscripcionCarrera ic = new InscripcionCarrera();
-                ic.setAntiguedad(r.nextInt(10));
-                ic.setGraduado(ic.getAntiguedad() > carrera.getDuracion());
-                estudiante.agregarInscripcion(ic);
-                carrera.agregarInscripcion(ic);
+//
+//                InscripcionId iId = new InscripcionId();
+//                iId.setId(carrera.getId());
+//                iId.setDni(estudiante.getEstudianteId().getDni());
+//                iId.setLibretaUniversitaria(estudiante.getEstudianteId().getLibretaUniversitaria());
+//                ic.setId(iId);
+
                 ic.setEstudiante(estudiante);
                 ic.setCarrera(carrera);
+                ic.setAntiguedad(r.nextInt(10));
+                ic.setGraduado(ic.getAntiguedad() > carrera.getDuracion());
+
                 inscripciones.add(ic);
             }
         }

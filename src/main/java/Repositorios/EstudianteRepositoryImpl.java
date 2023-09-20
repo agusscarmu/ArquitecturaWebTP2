@@ -37,7 +37,7 @@ public class EstudianteRepositoryImpl implements EstudianteRepository {
     public Estudiante obtenerEstudiantePorLibreta(int libreta) {
         try (EntityManager em = MyEntityManagerFactory.getInstance().createEntityManager()) {
             TypedQuery<Estudiante> query = em.createQuery(
-                    "SELECT e FROM Estudiante e WHERE e.libretaUniversitaria = :libreta", Estudiante.class);
+                    "SELECT e FROM Estudiante e WHERE e.estudianteId.libretaUniversitaria = :libreta", Estudiante.class);
             query.setParameter("libreta", libreta);
 
             // Realiza la consulta y obtén el resultado
@@ -61,7 +61,7 @@ public class EstudianteRepositoryImpl implements EstudianteRepository {
         } else if ("apellido".equals(criterioOrdenamiento)) {
             jpql += "e.apellido";
         } else if ("dni".equals(criterioOrdenamiento)) {
-            jpql += "e.dni";
+            jpql += "e.estudianteId.dni";
         } else {
             jpql = "SELECT e FROM Estudiante e";
         }

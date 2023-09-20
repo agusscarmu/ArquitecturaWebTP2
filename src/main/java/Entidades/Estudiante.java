@@ -34,11 +34,7 @@ public class Estudiante {
         this.inscripciones = new LinkedList<>();
     }
 
-    public void agregarInscripcion(InscripcionCarrera i){
-        if(!inscripciones.contains(i)){
-            inscripciones.add(i);
-        }
-    }
+
     public String getNombre() {
         return nombre;
     }
@@ -90,5 +86,13 @@ public class Estudiante {
     @Override
     public String toString() {
         return nombre+", "+apellido+"\n";
+    }
+
+    public EstudianteId getEstudianteId() {
+        return estudianteId;
+    }
+
+    public void setEstudianteId(EstudianteId estudianteId) {
+        this.estudianteId = estudianteId;
     }
 }

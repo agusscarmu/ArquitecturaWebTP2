@@ -1,151 +1,21 @@
-dni,libreta,nombre,apellido,edad,genero,ciudad
-34287690,584,Sherrie,Henebry,19,Femenino,Nukus
-35443627,926,Emelina,Demitria,22,Femenino,Cape Town
-29819026,597,Sidoney,Haldas,50,Masculino,Wonsan
-36191030,24,Michaelina,Tomasina,32,Femenino,Dalian
-33574183,661,Fanny,Fax,34,Femenino,Abu Dhabi
-29181186,824,Cecile,Donoghue,34,Masculino,Saint Petersburg
-33726486,568,Britte,Joni,35,Femenino,San Carlos de Bariloche
-29437206,602,Ekaterina,Penelopa,32,Masculino,Chiang Mai
-46595696,819,Evita,Mitzi,28,Femenino,Yerevan
-20553723,265,Meriel,Gordon,49,Masculino,Bangalore
-29284273,190,Riannon,Nore,38,Femenino,Bulawayo
-41545566,299,Ebonee,Seagraves,23,Masculino,Córdoba
-26040204,741,Minda,Colyer,42,Masculino,Nizhny Novgorod
-28137891,633,Roberta,Hurley,49,Femenino,Tamale
-32047759,141,Andeee,Lareena,38,Masculino,Honiara
-20310208,620,Elvira,Liebermann,26,Femenino,Suva
-24688304,800,Leanna,Alwin,48,Masculino,Andorra la Vella
-33449497,416,Deirdre,Nester,45,Masculino,Murmansk
-22321996,716,Sybille,Bach,33,Masculino,Port-au-Prince
-29274224,983,Augustine,Travax,43,Masculino,Reykjavík
-46834922,929,Kara-Lynn,Zrike,27,Femenino,Kuching
-39072353,968,Estell,Trace,31,Femenino,Cali
-31570319,799,Tamqrah,Hashim,46,Masculino,Gold Coast
-36408584,941,Beverley,Seligman,50,Femenino,Hanover
-22735407,793,Edee,Alrich,21,Masculino,Handan
-41433429,928,Etta,Lesley,41,Femenino,Honolulu
-38714145,999,Ashlee,Carlson,48,Masculino,Bandung
-36654412,360,Reeba,Sekofski,50,Masculino,Nouméa
-21912933,863,Dominga,Ammann,41,Femenino,Cockburn Town
-32382790,206,Marcelline,Felizio,21,Femenino,Kandahar
-24984191,182,Aaren,Keelia,25,Femenino,Porto Velho
-36027217,234,Willetta,Eugenia,39,Femenino,Manchester
-45752392,504,Nataline,Slifka,33,Masculino,Auckland
-38736281,615,Tami,Heidt,50,Femenino,Andorra la Vella
-28426321,235,Livvyy,My,26,Masculino,Podgorica
-39416971,798,Lorne,Rona,24,Masculino,Bangkok
-23994328,837,Karina,Suzetta,23,Masculino,Kingston
-33430941,511,Minne,Elephus,32,Masculino,Beijing
-36355189,934,Caryl,Rooney,37,Femenino,Udon Thani
-34018452,852,Claudina,Annice,34,Masculino,Nuuk
-24538698,525,Gusty,Sekofski,36,Femenino,Hyderabad
-48533664,350,Stephanie,Norrie,49,Femenino,Geneva
-35379138,234,Tori,Craggie,27,Femenino,Iquique
-29365006,262,Lindie,Toni,44,Masculino,Kota Bharu
-32923836,296,Gerrie,Pierette,44,Femenino,Dunedin
-28250736,2,Magdalena,Deegan,39,Masculino,Ho Chi Minh City
-43998792,679,Bertine,Aloise,26,Femenino,Vitória
-26051522,478,Kristan,Adrienne,36,Masculino,Kaliningrad
-24765541,893,Vivia,Fink,19,Masculino,Virginia Beach
-39292968,844,Jenilee,Leonard,45,Masculino,Rotterdam
-33933361,234,Annabela,Maryanne,38,Masculino,Jaipur
-23044681,320,Marleah,Gualtiero,35,Masculino,Dhaka
-31917803,295,Marcy,Lauraine,41,Femenino,N'Djamena
-37591901,654,Tera,Nester,44,Masculino,New Delhi
-20851033,172,Bobbi,Raimondo,43,Femenino,Marrakech
-44253875,941,Calla,Ovid,49,Masculino,Port Hedland
-43546082,550,Jacenta,Desai,19,Femenino,Luxor
-42681511,540,Emilia,Rosette,42,Masculino,Pretoria
-48334341,144,Aurore,Weinreb,30,Masculino,Gaborone
-20935542,985,Felice,Joni,45,Femenino,Belgrade
-39223287,904,Hallie,Levey,34,Masculino,Kharkiv
-29817313,621,Ashlee,Abram,33,Masculino,Seville
-43999240,627,Philis,Bonucci,23,Masculino,Puerto Williams
-30972217,891,Veda,Dulciana,24,Masculino,La Paz
-27623473,300,Wynne,Vharat,34,Femenino,Munich
-21546989,538,Romona,Caitlin,28,Masculino,Albuquerque
-30647440,360,Riannon,Catie,37,Femenino,Simferopol
-48998562,602,Coral,Kellby,37,Femenino,Yaren District
-41184329,665,Shannah,Durante,34,Masculino,Liverpool
-48353263,116,Kathy,Jacqui,44,Masculino,Baghdad
-26828016,878,Melodie,Dawkins,28,Femenino,Vienna
-47980775,529,Nita,Shirberg,46,Masculino,Tegucigalpa
-39154530,315,Alia,Salchunas,47,Femenino,Banda Aceh
-32261695,574,Rosaline,Tjon,29,Femenino,Palma
-45498535,92,Ethel,Stelle,31,Femenino,Accra
-48203256,707,Stacey,Libna,33,Masculino,Surat
-44337154,701,Jillayne,Himelman,43,Masculino,Davao City
-42504509,182,Concettina,McCutcheon,20,Femenino,Madrid
-34011668,63,Christal,Mich,27,Masculino,Panama City
-45952692,714,Fanchon,Lesley,37,Femenino,Vaduz
-31810032,103,Carlie,Forrer,30,Masculino,Kunming
-21430923,560,Joceline,Arquit,40,Femenino,Brikama
-33777026,139,Emilia,Neils,24,Femenino,Charlotte Amalie
-32036978,825,Hope,Standing,41,Femenino,Suez
-37470354,242,Vivia,Kristi,22,Femenino,Lobamba
-22266307,515,Verla,Bergman,36,Masculino,Córdoba
-24119224,509,Shannah,Gusella,25,Femenino,Port Louis
-44179639,576,Selia,Roche,22,Masculino,Davao City
-20704668,736,Sallie,Barney,30,Masculino,Vitória
-48857485,594,Demetris,Nicoline,27,Femenino,Dodoma
-31632730,401,Consuela,Aurelio,32,Masculino,Miri
-30814459,254,Ernesta,Wattenberg,41,Femenino,Campo Grande
-29386862,153,Sonni,Mendez,45,Femenino,Istanbul
-26344886,788,Heddie,Blase,20,Masculino,San Fernando
-37417204,431,Sharai,Callista,21,Femenino,Bern
-38807955,97,Aili,Bakerman,36,Femenino,Mendoza
-22312203,568,Sharlene,Xerxes,42,Masculino,Hanga Roa
-44828422,109,Lorenza,Jagir,47,Femenino,Hobart
-31568191,358,Barbara,Allina,21,Femenino,El Aaiún
-29816457,769,Darci,Voletta,35,Femenino,Lima
-39799092,546,Sidoney,Nicoline,47,Femenino,Guwahati
-41712687,327,Josephine,Bultman,47,Femenino,Hong Kong
-37613147,453,Maud,Longfellow,39,Femenino,Port Vila
-43091401,23,Phedra,Bigner,20,Femenino,Milan
-24467025,658,Maud,Gualtiero,33,Masculino,Tórshavn
-27080779,996,Brandise,Valerio,24,Masculino,Chaguanas
-46237952,12,Ardenia,Sothena,34,Masculino,Turin
-32819068,586,Arlina,Luhe,22,Femenino,Tianjin
-27546576,855,Shaylyn,Holbrook,38,Masculino,Buffalo
-47831505,219,Rosaline,Bivins,46,Masculino,Andorra la Vella
-34450354,528,Amii,Leffen,37,Femenino,Damascus
-33897564,664,Dagmar,Sidonius,32,Masculino,Thimphu
-28516873,978,Nickie,Sharl,41,Masculino,Lusaka
-20388939,178,Rhoda,Goth,41,Femenino,Damascus
-22311255,458,Blake,Lutero,22,Femenino,Casablanca
-43268106,333,Cordi,Alcott,43,Masculino,Manila
-25134057,17,Harrietta,Cyrie,24,Masculino,Xi'an
-33341230,138,Ruthe,Garlinda,19,Femenino,Koror
-37396278,27,Meriel,Lucienne,36,Femenino,Málaga
-38080715,46,Wanda,Velick,31,Femenino,Miri
-34651027,214,Jemie,Felecia,28,Masculino,Melekeok
-30747071,360,Lindie,Read,38,Masculino,Assis
-23957730,179,Bobbi,Martsen,23,Femenino,Geelong
-22664783,168,Betta,Cleo,49,Femenino,Mata-Utu
-49536526,63,Delilah,Martguerita,25,Femenino,Winnipeg
-26395410,165,Olwen,Drisko,20,Masculino,Chongqing
-33448247,773,Grier,Primalia,43,Masculino,Melbourne
-45179782,458,Carolina,Gino,42,Femenino,Libreville
-27611127,87,Celestyna,Burkle,38,Masculino,Omdurman
-44235171,354,Sandie,Santoro,38,Masculino,Canberra
-25658196,835,Addia,Douglass,36,Masculino,Wellington
-49072242,816,Sean,Dawkins,34,Masculino,Lomé
-28780372,979,Jenda,Armanda,33,Masculino,Surat Thani
-38539611,28,Bertine,Konyn,34,Femenino,Tórshavn
-35970940,799,Clary,Charity,28,Masculino,Tbilisi
-20158921,154,Eve,Bibi,45,Femenino,Birkirkara
-22499047,547,Aurelie,Urias,42,Masculino,Cannes
-35302207,890,Mariele,Lilybelle,20,Femenino,Nukulaelae
-41081158,314,Justinn,Viddah,47,Masculino,Brazzaville
-26926466,38,Clementine,Lowry,43,Femenino,Luxor
-26437946,124,Chloris,Socha,45,Femenino,Manchester
-23776549,428,Hollie,Lay,42,Femenino,Durango
-27665568,67,Carmela,Lytton,29,Femenino,Indianapolis
-33752987,560,Tersina,Kenney,32,Femenino,Belize City
-43286352,343,Estell,Codding,20,Femenino,Miami
-45723838,985,Mary,Nunci,27,Masculino,Basse-Terre
-45724568,623,Livvyy,Paine,34,Masculino,Basra
-29496319,192,Marnia,Ariella,34,Masculino,Jeddah
-44276407,691,Asia,Brunell,31,Femenino,Mogadishu
-35062187,102,Devina,Himelman,29,Femenino,Medellín
+dni,libretaUniversitaria,nombre,apellido,edad,genero,ciudad
+12345001,56789001,Martín,González,23,Masculino,Buenos Aires
+23456002,67890002,Sofía,Fernández,22,Femenino,Córdoba
+34567003,78901003,Mateo,López,20,Masculino,Rosario
+45678004,89012004,Valentina,Martínez,24,Femenino,Mendoza
+56789005,90123005,Benjamín,Sánchez,21,Masculino,La Plata
+67890006,12345006,Emma,Pérez,22,Femenino,Mar del Plata
+78901007,23456007,Lucas,Rodríguez,25,Masculino,Santa Fe
+89012008,34567008,Sofía,Gómez,20,Femenino,Salta
+90123009,45678009,Matías,Díaz,23,Masculino,San Juan
+12345010,56789010,Maia,Fernández,22,Femenino,Córdoba
+23456011,67890011,Lucas,González,21,Masculino,Buenos Aires
+34567012,78901012,Sofía,Smith,24,Femenino,Rosario
+45678013,89012013,Thiago,Gómez,20,Masculino,La Plata
+56789014,90123014,Valentina,Pérez,23,Femenino,Mendoza
+67890015,12345015,Martín,Rodríguez,22,Masculino,Mar del Plata
+78901016,23456016,Emilia,Sánchez,25,Femenino,Santa Fe
+89012017,34567017,Benjamín,López,20,Masculino,Salta
+90123018,45678018,Mateo,Martínez,24,Femenino,San Juan
+12345019,56789019,Sofía,Fernández,21,Masculino,Córdoba
+23456020,67890020,Emma,González,22,Femenino,Buenos Aires

@@ -26,12 +26,11 @@ public class Carrera {
         this.inscripciones = new LinkedList<>();
     }
 
-    public void agregarInscripcion(InscripcionCarrera i){
-        if(!inscripciones.contains(i)){
-            inscripciones.add(i);
+    public void addInscripcion(InscripcionCarrera inscripcion){
+        if(!inscripciones.contains(inscripcion)){
+            inscripciones.add(inscripcion);
         }
     }
-
     public int getId() {
         return id;
     }
