@@ -72,6 +72,16 @@ public class EstudianteRepositoryImpl implements EstudianteRepository {
     }
 
     @Override
+    public List<Estudiante> obtenerTodosLosEstudiantesPorGenero(String genero) {
+        EntityManager em = MyEntityManagerFactory.getInstance().createEntityManager();
+
+        TypedQuery<Estudiante> query = em.createQuery("SELECT e FROM Estudiante e WHERE e.genero= :genero", Estudiante.class);
+        query.setParameter("genero",genero);
+
+        return query.getResultList();
+    }
+
+    @Override
     public void actualizarEstudiante(Estudiante estudiante) {
 
     }

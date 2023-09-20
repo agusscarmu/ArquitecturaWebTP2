@@ -13,7 +13,7 @@ public class InscripcionCarrera {
 
     @Id
     @ManyToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name = "carrera")
+    @JoinColumn(name = "carrera", referencedColumnName = "id")
     private Carrera carrera;
 
     private int antiguedad;

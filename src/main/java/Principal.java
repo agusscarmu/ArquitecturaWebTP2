@@ -22,7 +22,7 @@ public class Principal {
 //
         HelperCSV helper = new HelperCSV();
         helper.InsertarCSV("estudiante.csv", "carrera.csv", "inscripcionCarrera.csv");
-//
+////
 //        Estudiante estudiante = new Estudiante(41724302, 200, "Agustin", "Carmu", 24, "Masculino", "Olavarria");
 //        Carrera carrera = new Carrera();
 //        carrera.setDuracion(6);
@@ -42,11 +42,17 @@ public class Principal {
 //        er.agregarEstudiante(estudiante);
 //        icr.agregarInscripcionCarrera(inscripcion);
 
+
+
+
+
+
 //        EstudianteRepository er = new EstudianteRepositoryImpl();
 //        System.out.println(er.obtenerTodosLosEstudiantes("dni").toString());
 //        System.out.println("-----------------------------");
 //        System.out.println(er.obtenerEstudiantePorLibreta(584));
-
+//        System.out.println("-----------------------------");
+//        System.out.println(er.obtenerTodosLosEstudiantesPorGenero("Femenino"));
 
     }
 }

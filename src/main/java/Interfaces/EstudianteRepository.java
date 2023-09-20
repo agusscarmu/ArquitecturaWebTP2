@@ -19,6 +19,8 @@ public interface EstudianteRepository{
     // Método para obtener todos los estudiantes
     List<Estudiante> obtenerTodosLosEstudiantes(String criterioOrdenamiento);
 
+    List<Estudiante> obtenerTodosLosEstudiantesPorGenero(String genero);
+
     // Método para actualizar la información de un estudiante
     void actualizarEstudiante(Estudiante estudiante);
 
