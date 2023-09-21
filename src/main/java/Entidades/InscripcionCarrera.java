@@ -18,10 +18,12 @@ public class InscripcionCarrera {
 
     private int antiguedad;
     private boolean graduado;
+    private int anioInscripcion;
 
-    public InscripcionCarrera(int antiguedad, boolean graduado) {
+    public InscripcionCarrera(int antiguedad, boolean graduado, int anioInscripcion) {
         this.antiguedad = antiguedad;
         this.graduado = graduado;
+        this.anioInscripcion = anioInscripcion;
     }
 
     public InscripcionCarrera() {
@@ -61,5 +63,13 @@ public class InscripcionCarrera {
     public void setCarrera(Carrera carrera) {
         carrera.addInscripcion(this);
         this.carrera = carrera;
+    }
+
+    public int getAnioInscripcion() {
+        return anioInscripcion;
+    }
+
+    public void setAnioInscripcion(int anioInscripcion) {
+        this.anioInscripcion = anioInscripcion;
     }
 }

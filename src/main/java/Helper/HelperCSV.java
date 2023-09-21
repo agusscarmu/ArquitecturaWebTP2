@@ -61,7 +61,7 @@ public class HelperCSV {
         for (CSVRecord row : parser) {
             Carrera c = getCarrera(Integer.parseInt(row.get("carrera")));
             Estudiante e = getEstudiante(Integer.parseInt(row.get("dni")), Integer.parseInt(row.get("libretaUniversitaria")));
-            InscripcionCarrera ic = new InscripcionCarrera(Integer.parseInt(row.get("antiguedad")),row.get("graduado").equals("true"));
+            InscripcionCarrera ic = new InscripcionCarrera(Integer.parseInt(row.get("antiguedad")),row.get("graduado").equals("true"),Integer.parseInt(row.get("anioIngreso")));
             ic.setCarrera(c);
             ic.setEstudiante(e);
             inscripciones.add(ic);

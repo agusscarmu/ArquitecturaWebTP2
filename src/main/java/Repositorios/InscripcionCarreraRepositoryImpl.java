@@ -67,16 +67,18 @@ public class InscripcionCarreraRepositoryImpl implements InscripcionCarreraRepos
         EntityManager em = MyEntityManagerFactory.getInstance().createEntityManager();
         List<CarreraReporteDTO> lista = new ArrayList<>();
         try {
-            for(int y=1990;y<2024;y++) {
+            for(int y=1990;y<java.time.LocalDate.now().getYear()+1;y++) {
                 TypedQuery<CarreraReporteDTO> query = em.createQuery(
-                        "SELECT NEW DTO.InscripcionCarreraDTO.CarreraReporteDTO(c.nombre, YEAR(i.fechaInscripcion), COUNT(i), COUNT(e)) " +
-                                "FROM InscripcionCarrera c " +
-                                "LEFT JOIN c.inscripciones i " +
-                                "LEFT JOIN c.egresados e " +
-                                "GROUP BY c.nombre, YEAR(i.fechaInscripcion) " +
-                                "ORDER BY c.nombre ASC, YEAR(i.fechaInscripcion) ASC", CarreraReporteDTO.class);
+                        "SELECT NEW DTO.InscripcionCarreraDTO.CarreraReporteDTO(c.nombre, :y, " +
+                                "(SELECT COUNT(i) FROM InscripcionCarrera i WHERE i.carrera = c AND i.anioInscripcion = :y), " +
+                                "(SELECT COUNT(i) FROM InscripcionCarrera i WHERE i.carrera = c AND i.graduado = true AND (i.anioInscripcion + i.antiguedad) = :y)) " +
+                                "FROM Carrera c", CarreraReporteDTO.class);
 
-                lista.addAll(query.getResultList());
+
+                query.setParameter("y", y);
+                if(!query.getResultList().isEmpty()){
+                    lista.addAll(query.getResultList()); //EL ERROR INDICA ESTA LINEA
+                }
             }
         } finally {
             em.close();

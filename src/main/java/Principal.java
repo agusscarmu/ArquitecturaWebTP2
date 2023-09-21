@@ -20,9 +20,9 @@ public class Principal {
 
     public static void main(String[] args) throws IOException {
 //
-//        HelperCSV helper = new HelperCSV();
-//        helper.InsertarCSV("estudiante.csv", "carrera.csv", "inscripcionCarrera.csv");
-////
+        HelperCSV helper = new HelperCSV();
+        helper.InsertarCSV("estudiante.csv", "carrera.csv", "inscripcionCarrera.csv");
+//////
 //        Estudiante estudiante = new Estudiante(41724302, 200, "Agustin", "Carmu", 24, "Masculino", "Olavarria");
 //        Carrera carrera = new Carrera();
 //        carrera.setDuracion(6);
@@ -59,6 +59,7 @@ public class Principal {
         System.out.println("-----------------------------");
         InscripcionCarreraRepository icr = new InscripcionCarreraRepositoryImpl();
         System.out.println(icr.obtenerListaFiltrada("Buenos Aires", 1));
+        System.out.println(icr.obtenerReporte().toString());
 
     }
 }

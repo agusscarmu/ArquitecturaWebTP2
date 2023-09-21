@@ -44,4 +44,9 @@ public class CarreraReporteDTO {
     public void setEgresados(long egresados) {
         this.egresados = egresados;
     }
+
+    @Override
+    public String toString() {
+        return anio+"| carrera: "+nombreCarrera+", cantidad inscriptos: "+inscriptos+", cantidad egresados: "+egresados+"\n";
+    }
 }
