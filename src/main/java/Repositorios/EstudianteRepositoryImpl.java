@@ -1,5 +1,7 @@
 package Repositorios;
 
+import DTO.EstudianteDTO.EstudianteDTO;
+import DTO.EstudianteDTO.EstudianteLibretaDTO;
 import Entidades.Carrera;
 import Entidades.Estudiante;
 import Fabrica.MyEntityManagerFactory;
@@ -34,48 +36,48 @@ public class EstudianteRepositoryImpl implements EstudianteRepository {
     }
 
     @Override
-    public Estudiante obtenerEstudiantePorLibreta(int libreta) {
+    public EstudianteLibretaDTO obtenerEstudiantePorLibreta(int libreta) {
         try (EntityManager em = MyEntityManagerFactory.getInstance().createEntityManager()) {
-            TypedQuery<Estudiante> query = em.createQuery(
-                    "SELECT e FROM Estudiante e WHERE e.estudianteId.libretaUniversitaria = :libreta", Estudiante.class);
+            TypedQuery<EstudianteLibretaDTO> query = em.createQuery(
+                    "SELECT NEW DTO.EstudianteDTO.EstudianteLibretaDTO(e.nombre,e.apellido,e.estudianteId.libretaUniversitaria)"
+                            +" FROM Estudiante e WHERE e.estudianteId.libretaUniversitaria = :libreta", EstudianteLibretaDTO.class);
             query.setParameter("libreta", libreta);
 
             // Realiza la consulta y obtén el resultado
-            Estudiante estudiante = query.getSingleResult();
+            EstudianteLibretaDTO estudiante = query.getSingleResult();
 
             return estudiante;
         } catch (Exception e) {
+            System.out.println("No existe un alumno con libreta: "+libreta);
             // Manejar el caso en el que no se encuentra ningún estudiante con ese número de libreta
             return null;
         }
     }
 
     @Override
-    public List<Estudiante> obtenerTodosLosEstudiantes(String criterioOrdenamiento) {
+    public List<EstudianteDTO> obtenerTodosLosEstudiantes(String criterioOrdenamiento) {
         EntityManager em = MyEntityManagerFactory.getInstance().createEntityManager();
-        String jpql = "SELECT e FROM Estudiante e ORDER BY ";
+        String jpql = "SELECT NEW DTO.EstudianteDTO.EstudianteDTO(e.nombre,e.apellido,e.estudianteId.libretaUniversitaria,e.estudianteId.dni) FROM Estudiante e";
 
 
         if ("nombre".equals(criterioOrdenamiento)) {
-            jpql += "e.nombre";
+            jpql += " ORDER BY e.nombre";
         } else if ("apellido".equals(criterioOrdenamiento)) {
-            jpql += "e.apellido";
+            jpql += " ORDER BY e.apellido";
         } else if ("dni".equals(criterioOrdenamiento)) {
-            jpql += "e.estudianteId.dni";
-        } else {
-            jpql = "SELECT e FROM Estudiante e";
+            jpql += " ORDER BY e.estudianteId.dni";
         }
 
-        TypedQuery<Estudiante> query = em.createQuery(jpql, Estudiante.class);
+        TypedQuery<EstudianteDTO> query = em.createQuery(jpql, EstudianteDTO.class);
 
         return query.getResultList();
     }
 
     @Override
-    public List<Estudiante> obtenerTodosLosEstudiantesPorGenero(String genero) {
+    public List<EstudianteDTO> obtenerTodosLosEstudiantesPorGenero(String genero) {
         EntityManager em = MyEntityManagerFactory.getInstance().createEntityManager();
 
-        TypedQuery<Estudiante> query = em.createQuery("SELECT e FROM Estudiante e WHERE e.genero= :genero", Estudiante.class);
+        TypedQuery<EstudianteDTO> query = em.createQuery("SELECT NEW DTO.EstudianteDTO.EstudianteDTO(e.nombre,e.apellido,e.estudianteId.libretaUniversitaria,e.estudianteId.dni) FROM Estudiante e WHERE e.genero= :genero", EstudianteDTO.class);
         query.setParameter("genero",genero);
 
         return query.getResultList();

@@ -3,6 +3,8 @@ package Interfaces;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
+
+import DTO.CarreraDTO.CarreraInscriptosDTO;
 import Entidades.Carrera;
 
 public interface CarreraRepository {
@@ -13,6 +15,8 @@ public interface CarreraRepository {
 
     // Método para obtener una carrera por su ID
     Carrera obtenerCarreraPorId(int id);
+
+    List<CarreraInscriptosDTO> obtenerCarrerasConInscriptos();
 
     // Método para obtener todas las carreras
     List<Carrera> obtenerTodasLasCarreras();

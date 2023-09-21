@@ -20,8 +20,8 @@ public class Principal {
 
     public static void main(String[] args) throws IOException {
 //
-        HelperCSV helper = new HelperCSV();
-        helper.InsertarCSV("estudiante.csv", "carrera.csv", "inscripcionCarrera.csv");
+//        HelperCSV helper = new HelperCSV();
+//        helper.InsertarCSV("estudiante.csv", "carrera.csv", "inscripcionCarrera.csv");
 ////
 //        Estudiante estudiante = new Estudiante(41724302, 200, "Agustin", "Carmu", 24, "Masculino", "Olavarria");
 //        Carrera carrera = new Carrera();
@@ -47,12 +47,18 @@ public class Principal {
 
 
 
-//        EstudianteRepository er = new EstudianteRepositoryImpl();
-//        System.out.println(er.obtenerTodosLosEstudiantes("dni").toString());
-//        System.out.println("-----------------------------");
-//        System.out.println(er.obtenerEstudiantePorLibreta(584));
-//        System.out.println("-----------------------------");
-//        System.out.println(er.obtenerTodosLosEstudiantesPorGenero("Femenino"));
+        EstudianteRepository er = new EstudianteRepositoryImpl();
+        System.out.println(er.obtenerTodosLosEstudiantes("dni").toString());
+        System.out.println("-----------------------------");
+        System.out.println(er.obtenerEstudiantePorLibreta(12345006));
+        System.out.println("-----------------------------");
+        System.out.println(er.obtenerTodosLosEstudiantesPorGenero("Femenino"));
+        System.out.println("-----------------------------");
+        CarreraRepository cr = new CarreraRespositoryImpl();
+        System.out.println(cr.obtenerCarrerasConInscriptos().toString());
+        System.out.println("-----------------------------");
+        InscripcionCarreraRepository icr = new InscripcionCarreraRepositoryImpl();
+        System.out.println(icr.obtenerListaFiltrada("Buenos Aires", 1));
 
     }
 }

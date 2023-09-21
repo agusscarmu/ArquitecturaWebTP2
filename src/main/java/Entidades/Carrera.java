@@ -62,4 +62,9 @@ public class Carrera {
     public void setDuracion(int duracion) {
         this.duracion = duracion;
     }
+
+    @Override
+    public String toString() {
+        return nombre;
+    }
 }

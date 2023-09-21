@@ -82,7 +82,7 @@ public class HelperCSV {
     public Estudiante getEstudiante(Integer dni, Integer libreta){
         for(Estudiante estudiante:estudiantes){
             if(estudiante.getEstudianteId().getDni() == dni
-                && estudiante.getEstudianteId().getLibretaUniversitaria() == libreta){
+                    && estudiante.getEstudianteId().getLibretaUniversitaria() == libreta){
                 return estudiante;
             }
         }

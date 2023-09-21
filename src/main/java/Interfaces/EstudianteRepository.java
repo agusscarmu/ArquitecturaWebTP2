@@ -1,6 +1,8 @@
 package Interfaces;
 
 
+import DTO.EstudianteDTO.EstudianteDTO;
+import DTO.EstudianteDTO.EstudianteLibretaDTO;
 import Entidades.Estudiante;
 
 import java.io.FileNotFoundException;
@@ -14,12 +16,12 @@ public interface EstudianteRepository{
     void agregarEstudiante(String csv) throws IOException;
 
     // Método para obtener un estudiante por su número de DNI
-    Estudiante obtenerEstudiantePorLibreta(int libreta);
+    EstudianteLibretaDTO obtenerEstudiantePorLibreta(int libreta);
 
     // Método para obtener todos los estudiantes
-    List<Estudiante> obtenerTodosLosEstudiantes(String criterioOrdenamiento);
+    List<EstudianteDTO> obtenerTodosLosEstudiantes(String criterioOrdenamiento);
 
-    List<Estudiante> obtenerTodosLosEstudiantesPorGenero(String genero);
+    List<EstudianteDTO> obtenerTodosLosEstudiantesPorGenero(String genero);
 
     // Método para actualizar la información de un estudiante
     void actualizarEstudiante(Estudiante estudiante);

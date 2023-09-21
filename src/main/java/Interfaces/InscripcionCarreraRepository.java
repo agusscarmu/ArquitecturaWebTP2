@@ -1,6 +1,8 @@
 package Interfaces;
 
 import java.util.List;
+
+import DTO.EstudianteDTO.EstudianteDTO;
 import Entidades.InscripcionCarrera;
 
 public interface InscripcionCarreraRepository {
@@ -13,6 +15,8 @@ public interface InscripcionCarreraRepository {
 
     // Método para obtener todas las inscripciones a carrera
     List<InscripcionCarrera> obtenerTodasLasInscripcionesCarrera();
+
+    List<EstudianteDTO> obtenerListaFiltrada(String ciudad, int idCarrera);
 
     // Método para actualizar la información de una inscripción a carrera
     void actualizarInscripcionCarrera(InscripcionCarrera inscripcion);

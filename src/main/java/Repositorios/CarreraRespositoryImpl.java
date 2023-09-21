@@ -1,9 +1,11 @@
 package Repositorios;
 
+import DTO.CarreraDTO.CarreraInscriptosDTO;
 import Entidades.Carrera;
 import Fabrica.MyEntityManagerFactory;
 import Interfaces.CarreraRepository;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
@@ -41,6 +43,24 @@ public class CarreraRespositoryImpl implements CarreraRepository {
     @Override
     public Carrera obtenerCarreraPorId(int id) {
         return null;
+    }
+
+    @Override
+    public List<CarreraInscriptosDTO> obtenerCarrerasConInscriptos() {
+        EntityManager em = MyEntityManagerFactory.getInstance().createEntityManager();
+
+        try {
+            TypedQuery<CarreraInscriptosDTO> query = em.createQuery(
+                    "SELECT NEW DTO.CarreraDTO.CarreraInscriptosDTO(c.nombre, COUNT(i), c.duracion) " +
+                            "FROM Carrera c " +
+                            "LEFT JOIN c.inscripciones i " +
+                            "GROUP BY c.nombre " +
+                            "ORDER BY COUNT(i) DESC", CarreraInscriptosDTO.class);
+
+            return query.getResultList();
+        } finally {
+            em.close();
+        }
     }
 
     @Override
