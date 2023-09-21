@@ -1,12 +1,14 @@
 package Repositorios;
 
 import DTO.EstudianteDTO.EstudianteDTO;
+import DTO.InscripcionCarreraDTO.CarreraReporteDTO;
 import Entidades.InscripcionCarrera;
 import Fabrica.MyEntityManagerFactory;
 import Interfaces.InscripcionCarreraRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class InscripcionCarreraRepositoryImpl implements InscripcionCarreraRepository {
@@ -58,6 +60,28 @@ public class InscripcionCarreraRepositoryImpl implements InscripcionCarreraRepos
     @Override
     public void actualizarInscripcionCarrera(InscripcionCarrera inscripcion) {
 
+    }
+
+    @Override
+    public List<CarreraReporteDTO> obtenerReporte() {
+        EntityManager em = MyEntityManagerFactory.getInstance().createEntityManager();
+        List<CarreraReporteDTO> lista = new ArrayList<>();
+        try {
+            for(int y=1990;y<2024;y++) {
+                TypedQuery<CarreraReporteDTO> query = em.createQuery(
+                        "SELECT NEW DTO.InscripcionCarreraDTO.CarreraReporteDTO(c.nombre, YEAR(i.fechaInscripcion), COUNT(i), COUNT(e)) " +
+                                "FROM InscripcionCarrera c " +
+                                "LEFT JOIN c.inscripciones i " +
+                                "LEFT JOIN c.egresados e " +
+                                "GROUP BY c.nombre, YEAR(i.fechaInscripcion) " +
+                                "ORDER BY c.nombre ASC, YEAR(i.fechaInscripcion) ASC", CarreraReporteDTO.class);
+
+                lista.addAll(query.getResultList());
+            }
+        } finally {
+            em.close();
+        }
+        return lista;
     }
 
     @Override

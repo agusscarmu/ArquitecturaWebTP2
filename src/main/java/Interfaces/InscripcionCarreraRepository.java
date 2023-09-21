@@ -3,6 +3,7 @@ package Interfaces;
 import java.util.List;
 
 import DTO.EstudianteDTO.EstudianteDTO;
+import DTO.InscripcionCarreraDTO.CarreraReporteDTO;
 import Entidades.InscripcionCarrera;
 
 public interface InscripcionCarreraRepository {
@@ -20,6 +21,8 @@ public interface InscripcionCarreraRepository {
 
     // Método para actualizar la información de una inscripción a carrera
     void actualizarInscripcionCarrera(InscripcionCarrera inscripcion);
+
+    List<CarreraReporteDTO> obtenerReporte();
 
     // Método para eliminar una inscripción a carrera de la base de datos
     void eliminarInscripcionCarrera(int id);
