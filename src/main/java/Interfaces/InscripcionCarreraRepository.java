@@ -4,6 +4,8 @@ import java.util.List;
 
 import DTO.EstudianteDTO.EstudianteDTO;
 import DTO.InscripcionCarreraDTO.CarreraReporteDTO;
+import Entidades.Carrera;
+import Entidades.Estudiante;
 import Entidades.InscripcionCarrera;
 
 public interface InscripcionCarreraRepository {
@@ -13,6 +15,11 @@ public interface InscripcionCarreraRepository {
     void agregarInscripcionCarrera(String csv);
     // Método para obtener una inscripción a carrera por su ID
     InscripcionCarrera obtenerInscripcionCarreraPorId(int id);
+
+    void matricularEstudiante(Estudiante estudiante, Carrera carrera);
+
+    //En caso que sea necesario re-matricular un estudiante a una carrera (y sea necesario poner el año de inscripcion)
+    void matricularEstudiante(Estudiante estudiante, Carrera carrera, int anioInscripcion);
 
     // Método para obtener todas las inscripciones a carrera
     List<InscripcionCarrera> obtenerTodasLasInscripcionesCarrera();

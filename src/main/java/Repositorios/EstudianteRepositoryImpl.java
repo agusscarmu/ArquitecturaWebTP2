@@ -26,6 +26,11 @@ public class EstudianteRepositoryImpl implements EstudianteRepository {
             em.persist(estudiante);
             em.getTransaction().commit();
         } catch (Exception e) {
+            if (em.getTransaction() != null && em.getTransaction().isActive()) {
+                em.getTransaction().rollback();
+            }
+            throw e;
+        } finally {
             em.close();
         }
     }
@@ -33,6 +38,12 @@ public class EstudianteRepositoryImpl implements EstudianteRepository {
     @Override
     public void agregarEstudiante(String csv) throws IOException {
 
+    }
+
+    @Override
+    public void altaEstudiante(int dni, int libreta, String nombre, String apellido, int edad, String genero, String ciudad) {
+        Estudiante estudiante = new Estudiante(dni,libreta,nombre,apellido,edad,genero,ciudad);
+        agregarEstudiante(estudiante);
     }
 
     @Override

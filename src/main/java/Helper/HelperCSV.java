@@ -89,52 +89,11 @@ public class HelperCSV {
         return null;
     }
 
-//
-//    private void assign(){
-//        Random r = new Random();
-//        for(Estudiante estudiante:estudiantes){
-//            int cantCarreras = r.nextInt(3);
-//            for(int i=0;i<cantCarreras;i++){
-//                int index = r.nextInt(carreras.size());
-//                Carrera carrera = carreras.get(index);
-//
-//                int incripcionesEstudiante = estudiante.getInscripciones().size();
-//                int a=0;
-//                while (a<incripcionesEstudiante){
-//                    for(InscripcionCarrera inscr: estudiante.getInscripciones()){
-//                        if(inscr.getCarrera().equals(carrera)){
-//                            carrera = carreras.get(r.nextInt(carreras.size()));
-//                            a=0;
-//                        }
-//                    }
-//                    a++;
-//                }
-//
-//                InscripcionCarrera ic = new InscripcionCarrera();
-////
-////                InscripcionId iId = new InscripcionId();
-////                iId.setId(carrera.getId());
-////                iId.setDni(estudiante.getEstudianteId().getDni());
-////                iId.setLibretaUniversitaria(estudiante.getEstudianteId().getLibretaUniversitaria());
-////                ic.setId(iId);
-//
-//                ic.setEstudiante(estudiante);
-//                ic.setCarrera(carrera);
-//                ic.setAntiguedad(r.nextInt(10));
-//                ic.setGraduado(ic.getAntiguedad() > carrera.getDuracion());
-//
-//                inscripciones.add(ic);
-//            }
-//        }
-//        insert();
-//    }
-
     private void insert(){
         for(Estudiante estudiante: estudiantes){
             er.agregarEstudiante(estudiante);
         }
 
-        System.out.println(carreras.size());
         for(Carrera carrera: carreras){
             cr.agregarCarrera(carrera);
         }

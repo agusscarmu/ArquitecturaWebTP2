@@ -15,6 +15,7 @@ public interface EstudianteRepository{
     void agregarEstudiante(Estudiante estudiante);
     void agregarEstudiante(String csv) throws IOException;
 
+    void altaEstudiante(int dni, int libreta, String nombre, String apellido, int edad, String genero, String ciudad);
     // Método para obtener un estudiante por su número de DNI
     EstudianteLibretaDTO obtenerEstudiantePorLibreta(int libreta);
 

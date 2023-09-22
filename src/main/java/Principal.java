@@ -21,33 +21,23 @@ import java.util.List;
 public class Principal {
 
     public static void main(String[] args) throws IOException {
-//
-//        HelperCSV helper = new HelperCSV();
-//        helper.InsertarCSV("estudiante.csv", "carrera.csv", "inscripcionCarrera.csv");
-////////
-//        Estudiante estudiante = new Estudiante(41724302, 200, "Agustin", "Carmu", 24, "Masculino", "Olavarria");
-//        Carrera carrera = new Carrera();
-//        carrera.setDuracion(6);
-//        carrera.setNombre("Medicina");
-//
-//        InscripcionCarrera inscripcion = new InscripcionCarrera();
-//        inscripcion.setEstudiante(estudiante);
-//        inscripcion.setCarrera(carrera);
-//        inscripcion.setGraduado(false);
-//        inscripcion.setAntiguedad(5);
-//
-//        CarreraRepository cr = new CarreraRespositoryImpl();
-//        EstudianteRepository er = new EstudianteRepositoryImpl();
-//        InscripcionCarreraRepository icr = new InscripcionCarreraRepositoryImpl();
-//
-//        cr.agregarCarrera(carrera);
-//        er.agregarEstudiante(estudiante);
-//        icr.agregarInscripcionCarrera(inscripcion);
+
+        HelperCSV helper = new HelperCSV();
+        helper.InsertarCSV("estudiante.csv", "carrera.csv", "inscripcionCarrera.csv");
+
+
+        Estudiante estudiante = new Estudiante(41724312, 29900, "Astarion", "Carmu", 24, "Masculino", "Olavarria");
+        Carrera carrera = new Carrera();
+        carrera.setId(11);
+        carrera.setDuracion(6);
+        carrera.setNombre("Arqueologo");
+
 
 
         FactoryRepository fr = FactoryRepositoryImpl.getInstancia();
 
-
+        fr.getEstudianteRepository().altaEstudiante(44378662, 191919, "Agustina", "Thorm", 21, "Femenino", "Olavarria");
+        fr.getInscripcionCarreraRepository().matricularEstudiante(estudiante,carrera);
         System.out.println(fr.getEstudianteRepository().obtenerTodosLosEstudiantes("dni").toString());
         System.out.println("-----------------------------");
         System.out.println(fr.getEstudianteRepository().obtenerEstudiantePorLibreta(12345006));
@@ -58,6 +48,7 @@ public class Principal {
         System.out.println("-----------------------------");
         System.out.println(fr.getInscripcionCarreraRepository().obtenerListaFiltrada("Buenos Aires", 1));
         System.out.println(fr.getInscripcionCarreraRepository().obtenerReporte().toString());
+
 
     }
 }

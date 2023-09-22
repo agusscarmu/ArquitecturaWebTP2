@@ -2,7 +2,10 @@ package Repositorios;
 
 import DTO.EstudianteDTO.EstudianteDTO;
 import DTO.InscripcionCarreraDTO.CarreraReporteDTO;
+import Entidades.Carrera;
+import Entidades.Estudiante;
 import Entidades.InscripcionCarrera;
+import Fabrica.FactoryRepositoryImpl;
 import Fabrica.MyEntityManagerFactory;
 import Interfaces.InscripcionCarreraRepository;
 import jakarta.persistence.EntityManager;
@@ -23,7 +26,7 @@ public class InscripcionCarreraRepositoryImpl implements InscripcionCarreraRepos
             if (em.getTransaction() != null && em.getTransaction().isActive()) {
                 em.getTransaction().rollback();
             }
-            throw e; // Maneja la excepción o relánzala según tus necesidades
+            throw e;
         } finally {
             em.close();
         }
@@ -37,6 +40,47 @@ public class InscripcionCarreraRepositoryImpl implements InscripcionCarreraRepos
     @Override
     public InscripcionCarrera obtenerInscripcionCarreraPorId(int id) {
         return null;
+    }
+
+    @Override
+    public void matricularEstudiante(Estudiante estudiante, Carrera carrera) {
+        InscripcionCarrera iC = new InscripcionCarrera();
+        iC.setEstudiante(estudiante);
+        iC.setCarrera(carrera);
+        iC.setAnioInscripcion(java.time.LocalDate.now().getYear());
+        iC.setAntiguedad(0);
+        iC.setGraduado(iC.getAntiguedad()>carrera.getDuracion());
+        estudiante.addInscripcion(iC);
+        carrera.addInscripcion(iC);
+        FactoryRepositoryImpl.getInstancia().getEstudianteRepository().agregarEstudiante(estudiante);
+        FactoryRepositoryImpl.getInstancia().getCarreraRepository().agregarCarrera(carrera);
+
+        agregarInscripcionCarrera(iC);
+    }
+
+    @Override
+    public void matricularEstudiante(Estudiante estudiante, Carrera carrera, int anioInscripcion) {
+        InscripcionCarrera iC = new InscripcionCarrera();
+        iC.setEstudiante(estudiante);
+        iC.setCarrera(carrera);
+        iC.setAnioInscripcion(anioInscripcion);
+
+        int antiguedad = java.time.LocalDate.now().getYear() - anioInscripcion;
+        iC.setGraduado(antiguedad>carrera.getDuracion());
+
+        // Si la suma de la duración de la carrera y el año de inscripción es mayor que la fecha actual
+        if (iC.isGraduado()) {
+            iC.setAntiguedad(carrera.getDuracion());
+        } else {
+            iC.setAntiguedad(antiguedad);
+        }
+
+        estudiante.addInscripcion(iC);
+        carrera.addInscripcion(iC);
+        FactoryRepositoryImpl.getInstancia().getEstudianteRepository().agregarEstudiante(estudiante);
+        FactoryRepositoryImpl.getInstancia().getCarreraRepository().agregarCarrera(carrera);
+
+        agregarInscripcionCarrera(iC);
     }
 
     @Override

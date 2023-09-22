@@ -27,7 +27,7 @@ public class CarreraRespositoryImpl implements CarreraRepository {
             if (em.getTransaction() != null && em.getTransaction().isActive()) {
                 em.getTransaction().rollback();
             }
-            throw e; // Maneja la excepción o relánzala según tus necesidades
+            throw e;
         } finally {
             em.close();
         }
