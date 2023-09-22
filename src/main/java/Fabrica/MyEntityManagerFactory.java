@@ -6,7 +6,6 @@ import jakarta.persistence.Persistence;
 public class MyEntityManagerFactory {
     private final EntityManagerFactory emf;
 
-    // Constructor privado para asegurar que solo haya una instancia de MyEntityManagerFactory.
     private MyEntityManagerFactory() {
         emf = Persistence.createEntityManagerFactory("integrador2");
     }
