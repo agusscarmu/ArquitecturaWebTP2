@@ -38,6 +38,8 @@ public class Principal {
 
         fr.getEstudianteRepository().altaEstudiante(44378662, 191919, "Agustina", "Thorm", 21, "Femenino", "Olavarria");
         fr.getInscripcionCarreraRepository().matricularEstudiante(estudiante,carrera);
+//        misma funcion para matricular en un año especifico:
+//        fr.getInscripcionCarreraRepository().matricularEstudiante(estudiante,carrera,2010);
         System.out.println(fr.getEstudianteRepository().obtenerTodosLosEstudiantes("dni").toString());
         System.out.println("-----------------------------");
         System.out.println(fr.getEstudianteRepository().obtenerEstudiantePorLibreta(12345006));

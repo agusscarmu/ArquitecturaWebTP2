@@ -11,22 +11,22 @@ import java.util.List;
 
 public interface EstudianteRepository{
 
-    // Método para guardar un estudiante en la base de datos
+
     void agregarEstudiante(Estudiante estudiante);
     void agregarEstudiante(String csv) throws IOException;
 
     void altaEstudiante(int dni, int libreta, String nombre, String apellido, int edad, String genero, String ciudad);
-    // Método para obtener un estudiante por su número de DNI
+
     EstudianteLibretaDTO obtenerEstudiantePorLibreta(int libreta);
 
-    // Método para obtener todos los estudiantes
+
     List<EstudianteDTO> obtenerTodosLosEstudiantes(String criterioOrdenamiento);
 
     List<EstudianteDTO> obtenerTodosLosEstudiantesPorGenero(String genero);
 
-    // Método para actualizar la información de un estudiante
+
     void actualizarEstudiante(Estudiante estudiante);
 
-    // Método para eliminar un estudiante de la base de datos
+
     void eliminarEstudiante(int dni);
 }
