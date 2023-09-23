@@ -1,6 +1,8 @@
 package DTO.EstudianteDTO;
 
-public class EstudianteLibretaDTO {
+import java.io.Serializable;
+
+public class EstudianteLibretaDTO implements Serializable {
     private String nombre,apellido;
     private int libreta;
 
@@ -15,25 +17,16 @@ public class EstudianteLibretaDTO {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
 
     public String getApellido() {
         return apellido;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
 
     public int getLibreta() {
         return libreta;
     }
 
-    public void setLibreta(int libreta) {
-        this.libreta = libreta;
-    }
 
     @Override
     public String toString() {

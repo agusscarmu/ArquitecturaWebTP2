@@ -48,7 +48,7 @@ public class Principal {
         System.out.println("-----------------------------");
         System.out.println(fr.getCarreraRepository().obtenerCarrerasConInscriptos().toString());
         System.out.println("-----------------------------");
-        System.out.println(fr.getInscripcionCarreraRepository().obtenerListaFiltrada("Buenos Aires", 1));
+        System.out.println(fr.getInscripcionCarreraRepository().obtenerListaFiltrada("Olavarria", 11));
         System.out.println(fr.getInscripcionCarreraRepository().obtenerReporte().toString());
 
 

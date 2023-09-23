@@ -1,6 +1,8 @@
 package DTO.CarreraDTO;
 
-public class CarreraInscriptosDTO {
+import java.io.Serializable;
+
+public class CarreraInscriptosDTO implements Serializable {
     private String nombre;
     private Long cantidadInscriptos;
     private int duracion;
@@ -16,25 +18,15 @@ public class CarreraInscriptosDTO {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
 
     public Long getCantidadInscriptos() {
         return cantidadInscriptos;
-    }
-
-    public void setCantidadInscriptos(Long cantidadInscriptos) {
-        this.cantidadInscriptos = cantidadInscriptos;
     }
 
     public int getDuracion() {
         return duracion;
     }
 
-    public void setDuracion(int duracion) {
-        this.duracion = duracion;
-    }
 
     @Override
     public String toString() {

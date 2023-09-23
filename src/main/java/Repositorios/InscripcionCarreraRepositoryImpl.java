@@ -8,10 +8,12 @@ import Entidades.InscripcionCarrera;
 import Fabrica.FactoryRepositoryImpl;
 import Fabrica.MyEntityManagerFactory;
 import Interfaces.InscripcionCarreraRepository;
+import Sort.orderByNameYear;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class InscripcionCarreraRepositoryImpl implements InscripcionCarreraRepository {
@@ -111,22 +113,22 @@ public class InscripcionCarreraRepositoryImpl implements InscripcionCarreraRepos
         EntityManager em = MyEntityManagerFactory.getInstance().createEntityManager();
         List<CarreraReporteDTO> lista = new ArrayList<>();
         try {
-            for(int y=1990;y<java.time.LocalDate.now().getYear()+1;y++) {
+            for(int y = 1990; y < java.time.LocalDate.now().getYear() + 1; y++) {
                 TypedQuery<CarreraReporteDTO> query = em.createQuery(
                         "SELECT NEW DTO.InscripcionCarreraDTO.CarreraReporteDTO(c.nombre, :y, " +
                                 "(SELECT COUNT(i) FROM InscripcionCarrera i WHERE i.carrera = c AND i.anioInscripcion = :y), " +
                                 "(SELECT COUNT(i) FROM InscripcionCarrera i WHERE i.carrera = c AND i.graduado = true AND (i.anioInscripcion + i.antiguedad) = :y)) " +
-                                "FROM Carrera c", CarreraReporteDTO.class);
-
+                                "FROM Carrera c " +
+                                "WHERE (SELECT COUNT(i) FROM InscripcionCarrera i WHERE i.carrera = c AND i.anioInscripcion = :y) > 0 " +
+                                "   OR (SELECT COUNT(i) FROM InscripcionCarrera i WHERE i.carrera = c AND i.graduado = true AND (i.anioInscripcion + i.antiguedad) = :y) > 0 ", CarreraReporteDTO.class);
 
                 query.setParameter("y", y);
-                if(!query.getResultList().isEmpty()){
-                    lista.addAll(query.getResultList()); //EL ERROR INDICA ESTA LINEA
-                }
+                lista.addAll(query.getResultList());
             }
         } finally {
             em.close();
         }
+        lista.sort(new orderByNameYear());
         return lista;
     }
 

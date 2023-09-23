@@ -1,6 +1,8 @@
 package DTO.InscripcionCarreraDTO;
 
-public class CarreraReporteDTO {
+import java.io.Serializable;
+
+public class CarreraReporteDTO implements Serializable {
     private String nombreCarrera;
     private int anio;
     private long inscriptos;
@@ -17,36 +19,24 @@ public class CarreraReporteDTO {
         return nombreCarrera;
     }
 
-    public void setNombreCarrera(String nombreCarrera) {
-        this.nombreCarrera = nombreCarrera;
-    }
 
     public int getAnio() {
         return anio;
     }
 
-    public void setAnio(int anio) {
-        this.anio = anio;
-    }
 
     public long getInscriptos() {
         return inscriptos;
     }
 
-    public void setInscriptos(long inscriptos) {
-        this.inscriptos = inscriptos;
-    }
 
     public long getEgresados() {
         return egresados;
     }
 
-    public void setEgresados(long egresados) {
-        this.egresados = egresados;
-    }
 
     @Override
     public String toString() {
-        return anio+"| carrera: "+nombreCarrera+", cantidad inscriptos: "+inscriptos+", cantidad egresados: "+egresados+"\n";
+        return nombreCarrera+"\t|\t"+anio+", cantidad inscriptos: "+inscriptos+", cantidad egresados: "+egresados+"\n";
     }
 }
