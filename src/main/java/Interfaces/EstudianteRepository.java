@@ -21,6 +21,7 @@ public interface EstudianteRepository{
 
 
     List<EstudianteDTO> obtenerTodosLosEstudiantes(String criterioOrdenamiento);
+    List<EstudianteDTO> obtenerTodosLosEstudiantes();
 
     List<EstudianteDTO> obtenerTodosLosEstudiantesPorGenero(String genero);
 

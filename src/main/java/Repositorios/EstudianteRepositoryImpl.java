@@ -77,9 +77,20 @@ public class EstudianteRepositoryImpl implements EstudianteRepository {
             jpql += " ORDER BY e.apellido";
         } else if ("dni".equals(criterioOrdenamiento)) {
             jpql += " ORDER BY e.estudianteId.dni";
+        } else if ("libreta universitaria".equals(criterioOrdenamiento)) {
+            jpql += " ORDER BY e.estudianteId.libretaUniversitaria";
         }
 
         TypedQuery<EstudianteDTO> query = em.createQuery(jpql, EstudianteDTO.class);
+
+        return query.getResultList();
+    }
+
+    @Override
+    public List<EstudianteDTO> obtenerTodosLosEstudiantes() {
+        EntityManager em = MyEntityManagerFactory.getInstance().createEntityManager();
+
+        TypedQuery<EstudianteDTO> query = em.createQuery("SELECT NEW DTO.EstudianteDTO.EstudianteDTO(e.nombre,e.apellido,e.estudianteId.libretaUniversitaria,e.estudianteId.dni) FROM Estudiante e order by  e.nombre", EstudianteDTO.class);
 
         return query.getResultList();
     }
