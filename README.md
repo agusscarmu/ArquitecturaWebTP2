@@ -13,12 +13,18 @@ Ejercicio Integrador 2
 1 - La consigna 1 se encuentra en la carpeta "Diagrams", dentro se encontraran los diagramas solicitados.
 
 2 - 
-a) Proporcionamos la funcion agregarEstudiante() en donde se pasa como parametro un Estudiante. Y tambien la funcion altaEstudiante() en donde se pasa por parametro todos los datos de un estudiante y el mismo se instancia dentro de la funcion.
+a) Proporcionamos la funcion agregarEstudiante() en donde se pasa como parametro un Estudiante. Y tambien la funcion altaEstudiante() en donde se pasa por parametro todos los datos de un estudiante y el mismo se instancia dentro de la funcion. 
+
 b) matricularEstudiante()
+
 c) obtenerTodosLosEstudiantes(), por parametro debe pasarse el metodo de ordenamiento (nombre, apellido, dni, libreta universitaria). Si se utiliza la funcion sin pasarle por parametro ningun metodo de ordenamiento especifico, se ordenara por nombre.
+
 d) obtenerEstudiantePorLibreta(), por parametro debe pasarse la libreta universitaria.
+
 e) obtenerTodosLosEstudiantesPorGenero(), por parametro debe pasarse "Masculino" o "Femenino".
+
 f) obtenerCarrerasConInscriptos().
+
 g) obtenerListaFiltrada(), por parametro debe pasarse la ciudad y la carrera.
 
 3 - obtenerReporte(). El reporte de las carreras se implemento en el repositorio de InscripcionCarrera. 

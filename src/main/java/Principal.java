@@ -40,7 +40,7 @@ public class Principal {
         fr.getInscripcionCarreraRepository().matricularEstudiante(estudiante,carrera);
 //        misma funcion para matricular en un año especifico:
 //        fr.getInscripcionCarreraRepository().matricularEstudiante(estudiante,carrera,2010);
-        System.out.println(fr.getEstudianteRepository().obtenerTodosLosEstudiantes("dni").toString());
+        System.out.println(fr.getEstudianteRepository().obtenerTodosLosEstudiantes("libreta universitaria").toString());
         System.out.println("-----------------------------");
         System.out.println(fr.getEstudianteRepository().obtenerEstudiantePorLibreta(12345006));
         System.out.println("-----------------------------");
